@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thielle ❤️</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+    body {
+      background: linear-gradient(120deg, #2c2c54, #474787);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .login {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, #2c2c54, #474787);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      z-index: 10;
+    }
+    .login input {
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .login button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: white;
+      color: #2c2c54;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .container {
+      text-align: center;
+      color: white;
+      display: none;
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 { font-size: 3rem; margin-bottom: 20px; }
+    p { font-size: 1.2rem; max-width: 500px; margin: auto; }
+    button#surpresa {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      background: white;
+      color: #2c2c54;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .hidden { display: none; }
+    .flower, .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: float 6s linear infinite;
+    }
+    @keyframes float {
+      from { transform: translateY(100vh); opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body><div class="login" id="login">
+  <h2>Digite a senha 🦂</h2>
+  <input type="password" id="senha" placeholder="senha" />
+  <button onclick="entrar()">Entrar</button>
+</div><div class="container" id="conteudo">
+  <h1>Thielle 🌹</h1>
+  <p id="mensagem">Tenho algo importante pra te perguntar...</p>
+  <button id="surpresa" onclick="mostrarMensagem()">Clica aqui 🖤</button>
+  <p id="mensagemFinal" class="hidden" style="font-size:1.6rem; margin-top:20px; font-weight:bold;">
+    Quer ser minha amante?
+  </p>
+</div><!-- Música: Dias Cinzas (embed) --><iframe
+  width="0"
+  height="0"
+  src="https://www.youtube.com/embed/0W7w8XG1YxA?autoplay=1&loop=1&playlist=0W7w8XG1YxA"
+  frameborder="0"
+  allow="autoplay"
+  allowfullscreen>
+</iframe><script>
+  const senhaCorreta = 'escorpião';
+
+  function entrar() {
+    const senha = document.getElementById('senha').value;
+    if (senha === senhaCorreta) {
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('conteudo').style.display = 'block';
+    } else {
+      alert('Senha incorreta 🦂');
+    }
+  }
+
+  function mostrarMensagem() {
+    document.getElementById('mensagem').style.display = 'none';
+    document.getElementById('mensagemFinal').classList.remove('hidden');
+    for (let i = 0; i < 40; i++) {
+      criarElemento(Math.random() > 0.5 ? '🌸' : '❤️');
+    }
+  }
+
+  function criarElemento(simbolo) {
+    const el = document.createElement('div');
+    el.classList.add(simbolo === '❤️' ? 'heart' : 'flower');
+    el.innerText = simbolo;
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.animationDuration = (Math.random() * 3 + 3) + 's';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 6000);
+  }
+</script></body>
+  </html>
