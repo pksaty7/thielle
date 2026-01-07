@@ -6,7 +6,9 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
     body {
-      background: linear-gradient(120deg, #2c2c54, #474787);
+     <audio id="musica" loop>
+  <source src="https://docs.google.com/uc?export=download&id=1m9YFJYpN4v3ZQmWzXv9xJQx0p7o1cKkM" type="audio/mpeg">
+</audio> background: linear-gradient(120deg, #2c2c54, #474787);
       height: 100vh;
       display: flex;
       align-items: center;
@@ -99,6 +101,7 @@
   function entrar() {
     const senha = document.getElementById('senha').value;
     if (senha === senhaCorreta) {
+      document.getElementById("musica").play();
       document.getElementById('login').style.display = 'none';
       document.getElementById('conteudo').style.display = 'block';
     } else {
